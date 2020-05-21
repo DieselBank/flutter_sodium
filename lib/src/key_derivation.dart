@@ -11,7 +11,7 @@ class KeyDerivation {
   /// Derives a subkey from given master key.
   static Future<Uint8List> deriveFromKey(Uint8List masterKey, int subKeyId,
           {int subKeyLength = crypto_kdf_BYTES_MIN,
-          String context = '000000'}) =>
+          String context = '00000000'}) =>
       Sodium.cryptoKdfDeriveFromKey(
           subKeyLength, subKeyId, utf8.encode(context), masterKey);
 }
